@@ -17,9 +17,14 @@ function activate(context) {
     // The commandId parameter must match the command field in package.json
     context.subscriptions.push(vscode.commands.registerCommand('uuid.generate', function () {
         const editor = vscode.window.activeTextEditor;
+
+        if (editor == null) {
+            return;
+        }
+
         const position = editor.selection.active;
 
-        var newPosition = position.with(position.line, 0);
+        const newPosition = position.with(position.line, position.character);
 
         editor.edit(function (e) {
             e.insert(newPosition, generate());
