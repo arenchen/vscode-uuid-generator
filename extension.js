@@ -15,15 +15,11 @@ function activate(context) {
     // The command has been defined in the package.json file
     // Now provide the implementation of the command with  registerCommand
     // The commandId parameter must match the command field in package.json
-    context.subscriptions.push(vscode.commands.registerCommand('uuid.generate', function () {
-        const editor = vscode.window.activeTextEditor;
-        const position = editor.selection.active;
-
-        var newPosition = position.with(position.line, 0);
-
-        editor.edit(function (e) {
-            e.insert(newPosition, generate());
-        });
+    context.subscriptions.push(vscode.commands.registerTextEditorCommand('uuid.generate', function (editor, edit) {
+        for ( const selection of editor.selections ) {
+            const range = new vscode.Range(selection.start, selection.end);
+            edit.replace(range, generate());
+        }
     }));
 
     context.subscriptions.push(vscode.commands.registerCommand('uuid.copy', function () {
