@@ -1,74 +1,81 @@
 {
-    "name": "uuid-generator",
-    "displayName": "UUID Generator",
-    "description": "Generate a UUID",
-    "version": "0.0.2",
-    "license": "MIT",
-    "publisher": "netcorext",
-    "author": {
-        "name": "Aren Chen",
-        "email": "gucci313031@gmail.com"
-    },
-    "homepage": "https://github.com/arenchen/vscode-uuid-generator",
-    "icon": "images/icon.png",
-    "bugs": {
-        "url": "https://github.com/arenchen/vscode-uuid-generator/issues"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/arenchen/vscode-uuid-generator.git"
-    },
-    "engines": {
-        "vscode": "^1.21.0"
-    },
-    "categories": [
-        "Other", "Snippets"
+  "name": "uuid-generator",
+  "displayName": "UUID Generator",
+  "description": "Generate a UUID",
+  "version": "0.0.3",
+  "license": "MIT",
+  "publisher": "netcorext",
+  "author": {
+    "name": "Aren Chen",
+    "email": "gucci313031@gmail.com"
+  },
+  "homepage": "https://github.com/arenchen/vscode-uuid-generator",
+  "icon": "images/icon.png",
+  "bugs": {
+    "url": "https://github.com/arenchen/vscode-uuid-generator/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arenchen/vscode-uuid-generator.git"
+  },
+  "engines": {
+    "vscode": "^1.30.0"
+  },
+  "categories": [
+    "Other",
+    "Snippets"
+  ],
+  "keywords": [
+    "GUID",
+    "UUID"
+  ],
+  "activationEvents": [
+    "onCommand:uuid.generate",
+    "onCommand:uuid.duplicate"
+  ],
+  "main": "./out/src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "uuid.generate",
+        "title": "Generate a UUID"
+      },
+      {
+        "command": "uuid.duplicate",
+        "title": "Duplicate a UUID"
+      }
     ],
-    "keywords": [
-        "GUID",
-        "UUID"
-    ],
-    "activationEvents": [
-        "onCommand:uuid.generate",
-        "onCommand:uuid.copy"
-    ],
-    "main": "./extension",
-    "contributes": {
-        "commands": [
-            {
-                "command": "uuid.generate",
-                "title": "Generate a UUID"
-            },
-            {
-                "command": "uuid.copy",
-                "title": "Copy a UUID"
-            }
-        ],
-        "menus": {
-            "editor/context": [
-                {
-                    "when": "editorTextFocus",
-                    "command": "uuid.generate",
-                    "group": "uuid"
-                }
-            ]
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorTextFocus",
+          "command": "uuid.generate",
+          "group": "uuid"
         },
-        "scripts": {
-            "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
-            "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
-            "postinstall": "node ./node_modules/vscode/bin/install",
-            "test": "node ./node_modules/vscode/bin/test"
-        },
-        "devDependencies": {
-            "typescript": "^2.6.1",
-            "vscode": "^1.1.6",
-            "eslint": "^4.11.0",
-            "@types/node": "^7.0.43",
-            "@types/mocha": "^2.2.42"
+        {
+          "when": "editorHasMultipleSelections",
+          "command": "uuid.duplicate",
+          "group": "uuid"
         }
-    },
-    "dependencies": {
-        "copy-paste": "^1.3.0",
-        "uuid": "^3.2.1"
+      ]
     }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "yarn run compile && node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.42",
+    "@types/node": "^8.10.25",
+    "tsc-watch": "^1.1.36",
+    "tslint": "^5.8.0",
+    "typescript": "^3.1.4",
+    "vscode": "^1.1.25"
+  },
+  "dependencies": {
+    "@types/uuid": "^3.4.4"
+  }
 }

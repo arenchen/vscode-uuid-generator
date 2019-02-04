@@ -2,9 +2,6 @@
 ## Simple to use
 ![](images/uuid.gif)
 
-## Copy and Paste
-![](images/uuid-copy-paste.gif)
-
 ## Source
 [Github](https://github.com/arenchen/vscode-uuid-generator)
 
