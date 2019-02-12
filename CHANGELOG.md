@@ -5,6 +5,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [0.0.4] - 2019-02-13 (UTC+0800)
+### Fixed
+- lost dependencies
+
 ## [0.0.3] - 2019-02-05 (UTC+0800)
 - Convert to TypeScript
 - Refactoring: Improving the Design & Optimization

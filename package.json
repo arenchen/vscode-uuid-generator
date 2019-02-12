@@ -2,7 +2,7 @@
   "name": "uuid-generator",
   "displayName": "UUID Generator",
   "description": "Generate a UUID",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "publisher": "netcorext",
   "author": {
@@ -29,11 +29,11 @@
     "GUID",
     "UUID"
   ],
+  "main": "./out/src/extension.js",
   "activationEvents": [
     "onCommand:uuid.generate",
     "onCommand:uuid.duplicate"
   ],
-  "main": "./out/src/extension.js",
   "contributes": {
     "commands": [
       {
@@ -76,6 +76,7 @@
     "vscode": "^1.1.25"
   },
   "dependencies": {
-    "@types/uuid": "^3.4.4"
+    "@types/uuid": "^3.4.4",
+    "uuid": "^3.3.2"
   }
 }
