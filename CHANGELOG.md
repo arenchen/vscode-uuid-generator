@@ -5,6 +5,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [0.0.5] - 2022-01-22 (UTC+0800)
+### Improve
+- improve naming
+
 ## [0.0.4] - 2019-02-13 (UTC+0800)
 ### Fixed
 - lost dependencies

@@ -13,7 +13,7 @@ switch (process.platform) {
     _copy = { command: 'xclip', args: ["-selection", "clipboard"] };
     break;
   default:
-    throw new Error("Unknown platform: '" + process.platform + "'.");
+    throw new Error(`Unknown platform: '${process.platform}'.`);
 }
 
 export const copy = function (text:string, callback: () => void) {
