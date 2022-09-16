@@ -1,4 +1,7 @@
 # UUID Generator
+
+Generates random UUID strings (version 4).
+
 ## Simple to use
 ![](images/uuid.gif)
 
